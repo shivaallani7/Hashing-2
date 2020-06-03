@@ -1,0 +1,29 @@
+
+// Time Complexity :O(n)
+// Space Complexity :o(1)
+// Did this code successfully run on Leetcode : No( getting a run time exception) only 2/3 of the test cases are passed
+// Any problem you faced while coding this : 
+
+
+// Your code here along with comments explaining your approach
+
+class Solution(object):
+    def findMaxLength(self, nums):
+        dict = {}
+        leng = len(nums)
+        count = 0
+        maxlen = 0 
+        dict[0] = -1
+        for i in range(leng):
+            
+            if(nums[i] == 0):
+                count-=1 
+            else:
+                count+= 1
+            if count in dict.keys():
+                  
+                    maxlen = max(maxlen,i-dict[count])
+            else:
+                dict[count] = i
+        return maxlen       
+                
